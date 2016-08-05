@@ -72,4 +72,18 @@ or the instance of mountStore.fx if undefined is returned.
   var s = mount(r).name(function(name){ return name }); // explicit return value "JOHN DOE" returned
 
       console.log(s) // "JOHN DOE"
+
+
+/** 
+      Helper Functions
+*/
+
+// .has() checks for the presence of a property, and conditionaly calls one of two optional callbacks.
+// .hasNot() checks for the absence of a property, and conditionaly calls one of two optional callbacks.
+
+
+var o = {},
+    m = mount(o).has('name', null, function(n,s,m) { m('John Doe', 'Name'); return s; });
+    m = mount(o).hasNot('age', function(){ console.log('not found!')}); 
+
 ```

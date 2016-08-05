@@ -33,11 +33,22 @@ function mount( input, label ){
                                 return mount( stub );
                               }
   mountFx.prototype.isMounted = true;
-  
+
+  mountFx.prototype.has = function( prop, found, missing ){
+                            if( Store[prop] ){
+                              return found && found( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
+                            } else {
+                              return missing && missing( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
+                            }
+                         }
+  mountFx.prototype.hasNot = function(prop, missing, found){
+                                return Store.fx.has( prop, found, missing );
+                             }
+
   mountStore.prototype.mount = function(value, label){ 
                                 Store.values[label] = value;
                                 Store.fx[label] = function(callback){
-                                  return callback( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
+                                  return callback && callback( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
                                 }
                               }
   
