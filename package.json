@@ -1,6 +1,6 @@
 {
   "name": "mount.js",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A simple ultility function to make working with values, arrays and objects chainable. All values are wrappered with accesser functions that accept callbacks. Making calls, chainable and fluent.",
   "main": "mount.js",
   "scripts": {
