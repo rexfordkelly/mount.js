@@ -2,18 +2,14 @@
     
   Mount is a utility function to make working with values chainable and
   more Functional in style.
-
   Mount will turn any inputs into a store object who's properties are 
   accessor methods, that accept callbacks.
-
   Each callback will be passed a standard set of arugments.
-
     - Value:  the value of the prop of the original input.
     - Store:  the mountStore which holds all the values, and their Accessor Functions.
     - Mount:  a helper function to add additional values to the mountStore.
     - Prop:  the prop by which one can access the value in the Store.
     - Input:  the original source input, as it was passed in when mounted.
-
   Accessor Functions will return whatever your callback explicitly returns,
   or the instance of mountStore if undefined is returned.
   
@@ -54,9 +50,8 @@ function mount( input, label ){
 
   if( input ) {
     // Arrays
-    if( Array.isArray(input) || Array.isArray(tmp) ){
-      var source = tmp || input
-        source.forEach(function(val, i){
+    if( Array.isArray(input) ){
+        input.forEach(function(val, i){
           Store.mount(val, i);
         })
     } else { // Objects...
@@ -78,5 +73,6 @@ function mount( input, label ){
   }
   return Store.fx; 
 }
+
 
 module.exports = mount;
