@@ -79,3 +79,5 @@ function mount( input, label ){
   }
   return Store.fx; 
 }
+
+module.exports = mount;
