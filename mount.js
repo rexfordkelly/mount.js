@@ -19,26 +19,28 @@
 */
 function mount( input, label ){
   // will automaticly remount a previously instantiated Store.
-  if( input && input.isMounted && input.isMounted(input) ) return input;
+  if( input && input.isMounted ) return input;
   
   /**  Prototype Methods **/
   
   function mountStore(){
     this.values = {};
-    this.fx = {};
+    this.fx = new mountFx();
   }
-  mountStore.prototype.mapTo = function( map, stub ){
+  
+  function mountFx(){}
+  mountFx.prototype.mapTo = function( map, stub ){
                                 if( map.length !== Store.values.length ) return false;
                                 stub = stub || {};
                                 for( var key in map ){ stub[key] = Store.values[map[key]]; }
                                 return mount( stub );
                               }
-  mountStore.prototype.isMounted = function(obj){ return obj instanceof mountStore }
-  mountStore.prototype.getStore = function(){ return Store; }
+  mountFx.prototype.isMounted = true;
+  
   mountStore.prototype.mount = function(value, label){ 
                                 Store.values[label] = value;
                                 Store.fx[label] = function(callback){
-                                  return callback( Store.values[label], label, Store.values, input ) || Store.fx;
+                                  return callback( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
                                 }
                               }
 
@@ -67,8 +69,9 @@ function mount( input, label ){
       } else {
         // We will wrap the input into an object, then 
         // recurse to return a mounted object.
-        var tmp = {}; tmp[label || 'input' ] = input;
-        return mountStore(tmp);
+        var tmp = {};
+            tmp[label] = input;
+        return mount(tmp);
       } 
     }
   } else {
