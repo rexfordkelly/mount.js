@@ -23,8 +23,6 @@ or the instance of mountStore if undefined is returned.
 ##Examples:
 
 ```
-
-
 /** ======================================
    Mounting Primatives
 ======================================= **/
@@ -74,6 +72,4 @@ or the instance of mountStore if undefined is returned.
   var s = mount(r).name(function(name){ return name }); // explicit return value "JOHN DOE" returned
 
       console.log(s) // "JOHN DOE"
-
-
 ```

@@ -56,7 +56,6 @@ function mount( input, label ){
         })
     } else { // Objects...
       if( input && typeof input === 'object' ) {
-
         Object.keys(input).forEach(function(prop){
            Store.mount( input[prop], prop );
         })
