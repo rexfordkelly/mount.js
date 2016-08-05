@@ -1,20 +1,21 @@
 /**
     
-    Mount is a utility function to make working with values chainable and
-    more Functional in style.
+  Mount is a utility function to make working with values chainable and
+  more Functional in style.
 
-    Mount will turn any inputs into a store object who's properties are 
-    accessor methods, that accept callbacks.
+  Mount will turn any inputs into a store object who's properties are 
+  accessor methods, that accept callbacks.
 
-    Each callback will be passed a standard set of arugments.
+  Each callback will be passed a standard set of arugments.
 
-      value:  the value of the prop of the original input.
-      label:  the prop by which one can access the value in the Store.
-      Store:  the mountStore which holds all the values, and their Accessor Functions.
-      Input:  the original source input, as it was passed in when mounted.
+    - Value:  the value of the prop of the original input.
+    - Store:  the mountStore which holds all the values, and their Accessor Functions.
+    - Mount:  a helper function to add additional values to the mountStore.
+    - Prop:  the prop by which one can access the value in the Store.
+    - Input:  the original source input, as it was passed in when mounted.
 
-    Accessor Functions will return whatever your callback explicitly returns,
-    or the instance of mountStore if undefined is returned.
+  Accessor Functions will return whatever your callback explicitly returns,
+  or the instance of mountStore if undefined is returned.
   
 */
 function mount( input, label ){
