@@ -18,7 +18,7 @@ Each callback will be passed a standard set of arugments.
   - Input:  the original source input, as it was passed in when mounted.
 
 Accessor Functions will return whatever your callback explicitly returns,
-or the instance of mountStore if undefined is returned.
+or the instance of mountStore.fx if undefined is returned.
 
 ##Examples:
 
