@@ -44,8 +44,6 @@ function mount( input, label ){
                                   return callback( Store.values[label], Store.values, Store.mount, label, input ) || Store.fx;
                                 }
                               }
-
-  mountStore.prototype.Store = function(callback){ return callback ? callback(Store) : Store }
   
   /** Store Instantiation Process **/
 
