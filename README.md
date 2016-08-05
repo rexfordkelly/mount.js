@@ -11,10 +11,10 @@ accessor methods, that accept callbacks.
 
 Each callback will be passed a standard set of arugments.
 
-  value:  the value of the prop of the original input.
-  label:  the prop by which one can access the value in the Store.
-  Store:  the mountStore which holds all the values, and their Accessor Functions.
-  Input:  the original source input, as it was passed in when mounted.
+  - value:  the value of the prop of the original input.
+  - label:  the prop by which one can access the value in the Store.
+  - Store:  the mountStore which holds all the values, and their Accessor Functions.
+  - Input:  the original source input, as it was passed in when mounted.
 
 Accessor Functions will return whatever your callback explicitly returns,
 or the instance of mountStore if undefined is returned.
